@@ -16,11 +16,13 @@ ActiveRecord::Schema.define(version: 2021_06_19_044916) do
     t.integer "partner_id"
     t.integer "entrepreneur_id"
     t.datetime "start_time"
+    t.date "meeting_date"
     t.integer "duration"
     t.boolean "is_available"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["start_time"], name: "index_meetings_on_start_time", unique: true
+    t.index ["meeting_date"], name: "index_meetings_on_meeting_date"
+    t.index ["start_time"], name: "index_meetings_on_start_time"
   end
 
   create_table "users", force: :cascade do |t|
@@ -28,8 +30,8 @@ ActiveRecord::Schema.define(version: 2021_06_19_044916) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.string "is_partner"
-    t.string "is_entrepreneur"
+    t.boolean "is_partner"
+    t.boolean "is_entrepreneur"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

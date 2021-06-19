@@ -5,6 +5,7 @@
 #  id              :integer          not null, primary key
 #  duration        :integer
 #  is_available    :boolean
+#  meeting_date    :date
 #  start_time      :datetime
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -13,7 +14,8 @@
 #
 # Indexes
 #
-#  index_meetings_on_start_time  (start_time) UNIQUE
+#  index_meetings_on_meeting_date  (meeting_date)
+#  index_meetings_on_start_time    (start_time)
 #
 # Foreign Keys
 #

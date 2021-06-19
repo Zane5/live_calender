@@ -5,8 +5,8 @@
 #  id              :integer          not null, primary key
 #  email           :string
 #  first_name      :string
-#  is_entrepreneur :string
-#  is_partner      :string
+#  is_entrepreneur :boolean
+#  is_partner      :boolean
 #  last_name       :string
 #  username        :string
 #  created_at      :datetime         not null
