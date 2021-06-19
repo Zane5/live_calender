@@ -23,4 +23,6 @@
 #  partner_id       (partner_id => users.id)
 #
 class Meeting < ApplicationRecord
+  belongs_to :partner, class_name: "User"
+  belongs_to :entrepreneur, class_name: "User"
 end

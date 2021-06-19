@@ -27,7 +27,7 @@ FactoryBot.define do
     partner_id { "" }
     entrepreneur_id { "" }
     start_time { "2021-06-19 04:49:16" }
-    duration { "" }
-    is_available { false }
+    duration { 1 }
+    is_available { true }
   end
 end
