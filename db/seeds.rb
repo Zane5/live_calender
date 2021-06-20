@@ -10,7 +10,7 @@ partner1 = User.create!(
   first_name: "Sam",
   last_name: "Wang",
   email: "sam@example.org",
-  username: "samW",
+  username: "P1",
   is_partner: true
 )
 
@@ -18,7 +18,7 @@ partner2 = User.create!(
   first_name: "Adam",
   last_name: "Zhang",
   email: "adam@example.org",
-  username: "ZhangA",
+  username: "P2",
   is_partner: true
 )
 
@@ -26,7 +26,7 @@ partner3 = User.create!(
   first_name: "Jess",
   last_name: "Deng",
   email: "Jess@example.org",
-  username: "JD",
+  username: "P3",
   is_partner: true
 )
 
@@ -34,11 +34,11 @@ partner4 = User.create!(
   first_name: "Eass",
   last_name: "Ding",
   email: "Eass@example.org",
-  username: "Eass",
+  username: "P4",
   is_partner: true
 )
 
-entrepreneur1 = User.create!(
+ent1 = User.create!(
   first_name: "ent1",
   last_name: "Wang",
   email: "ent1@example.org",
@@ -46,7 +46,7 @@ entrepreneur1 = User.create!(
   is_entrepreneur: true
 )
 
-entrepreneur2 = User.create!(
+ent2 = User.create!(
   first_name: "ent2",
   last_name: "Zhang",
   email: "ent@example.org",
@@ -54,7 +54,7 @@ entrepreneur2 = User.create!(
   is_entrepreneur: true
 )
 
-entreprneur3 = User.create!(
+ent3 = User.create!(
   first_name: "ent3",
   last_name: "hui",
   email: "ent3@example.org",
@@ -62,10 +62,46 @@ entreprneur3 = User.create!(
   is_entrepreneur: true
 )
 
-entreprneur4 = User.create!(
+ent4 = User.create!(
   first_name: "ent4",
   last_name: "Ding",
   email: "ent4@example.org",
   username: "ent4",
   is_entrepreneur: true
+)
+
+Meeting.create!(
+  duration: 1,
+  is_available: false,
+  start_time: DateTime.strptime("07/01/2021 09:00", "%m/%d/%Y %H:%M"),
+  meeting_date: '07/01/2021'.to_date,
+  partner_id: partner1.id,
+  entrepreneur_id: ent1.id
+)
+
+Meeting.create!(
+  duration: 1,
+  is_available: false,
+  start_time: DateTime.strptime("01/07/2021 10:00", "%m/%d/%Y %H:%M"),
+  meeting_date: '07/01/2021'.to_date,
+  partner_id: partner1.id,
+  entrepreneur_id: ent2.id
+)
+
+Meeting.create!(
+  duration: 1,
+  is_available: false,
+  start_time: DateTime.strptime("01/07/2021 09:00", "%m/%d/%Y %H:%M"),
+  meeting_date: '07/01/2021'.to_date,
+  partner_id: partner2.id,
+  entrepreneur_id: ent3.id
+)
+
+Meeting.create!(
+  duration: 1,
+  is_available: false,
+  start_time: DateTime.strptime("01/07/2021 09:00", "%m/%d/%Y %H:%M"),
+  meeting_date: '07/01/2021'.to_date,
+  partner_id: partner3.id,
+  entrepreneur_id: ent4.id
 )
