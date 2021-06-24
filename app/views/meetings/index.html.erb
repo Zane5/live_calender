@@ -14,24 +14,32 @@
 <p id="notice"><%= notice %></p>
 <h1>Meetings</h1>
 <%= link_to 'New Meeting', new_meeting_path %>
-<table>
-  <thead>
-    <tr>
-      <th colspan="6"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @meetings.each do |meeting| %>
-      <tr>
-        <td><%= meeting.meeting_date %></td>
-        <td><%= meeting.start_time %></td>
-        <td><%= meeting.partner.username %></td>
-        <td><%= meeting.entrepreneur.username %></td>
-        <td><%= link_to 'Show', meeting %></td>
-        <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
-        <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 <br>
+<%= calendar(number_of_days: 1) do |date| %>
+  <%= date %>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Time</th>
+        <th scope="col">Partner A</th>
+        <th scope="col">Partner B</th>
+        <th scope="col">Partner C</th>
+        <th scope="col">Partner D</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @meetings.each do |meeting| %>
+        <tr>
+          <td><%= meeting.start_time %></td>
+          <td><%= meeting.entrepreneur.username %></td>
+          <td><%= meeting.entrepreneur.username %></td>
+          <td><%= meeting.entrepreneur.username %></td>
+          <td><%= meeting.entrepreneur.username %></td>
+          <td><%= link_to 'Show', meeting %>
+            <%= link_to 'Edit', edit_meeting_path(meeting) %>
+            <%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
