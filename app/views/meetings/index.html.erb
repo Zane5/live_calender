@@ -1,0 +1,37 @@
+<h1>Meetings</h1>
+<h3>Partners</h3>
+<ul>
+  <% @partners.each do |u|%>
+    <li><%=u.username%></li>
+  <%end%>
+</ul>
+<h3>Entrepreneur</h3>
+<ul>
+  <% @entrepreneur.each do |u|%>
+    <li><%=u.username%></li>
+  <%end%>
+</ul>
+<p id="notice"><%= notice %></p>
+<h1>Meetings</h1>
+<%= link_to 'New Meeting', new_meeting_path %>
+<table>
+  <thead>
+    <tr>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @meetings.each do |meeting| %>
+      <tr>
+        <td><%= meeting.meeting_date %></td>
+        <td><%= meeting.start_time %></td>
+        <td><%= meeting.partner.username %></td>
+        <td><%= meeting.entrepreneur.username %></td>
+        <td><%= link_to 'Show', meeting %></td>
+        <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
+        <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
